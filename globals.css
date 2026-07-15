@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #0a0a09;
+}
+
+body {
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (max-width: 768px), (hover: none) {
+  body {
+    cursor: auto;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Editorial hairline divider */
+.hairline {
+  height: 1px;
+  background: theme('colors.line');
+}
+
+/* Eyebrow / label style used across sections */
+.eyebrow {
+  font-family: var(--font-space);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: theme('colors.stone');
+}
+
+/* Utility for text-reveal masking (used with GSAP clipPath animation) */
+.reveal-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.reveal-mask > * {
+  display: block;
+  will-change: transform;
+}
+
+img,
+video {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visibility kept intentional and on-brand */
+a:focus-visible,
+button:focus-visible {
+  outline: 1px solid theme('colors.paper');
+  outline-offset: 4px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
